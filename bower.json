@@ -1,0 +1,22 @@
+{
+  "name": "canJS",
+  "version": "0.0.0",
+  "authors": [
+    "AndreyFizer <Fizer.AP@outlook.com>"
+  ],
+  "description": "can js",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "CanJS": "canjs#~2.3.0",
+    "jquery": "~2.1.4"
+  }
+}
