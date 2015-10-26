@@ -3,16 +3,18 @@
  */
 
 define([
-], function () {
+    'models/indexModel'
+], function (IndexModel) {
     var View;
     var tempFile = 'templates/index.mustache';
 
     View = can.Control.extend({
 
         init: function (element, options) {
-            //var elSelector = this.element.selector;
-            console.log(this.element);
-            console.log($('#wraper'));
+
+            //can.Model.bind('created', this.onCreateFunction);
+            this.indexModel = new IndexModel({name : 'Kiki'});
+            this.indexModel.bind('created', this.onCreateFunction);
 
             //$(elSelector).html(can.view(tempFile, {
             this.element.html(can.view(tempFile, {
@@ -24,9 +26,13 @@ define([
             var target = element.closest('div');
             target.hide();
             event.stopPropagation();
+        },
+
+        onCreateFunction : function (event, newEvent){
+            alert('Model Created successfully ' + newEvent);
         }
 
-        });
-
+    });
+    
     return View;
 });

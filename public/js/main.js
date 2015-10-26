@@ -10,6 +10,7 @@ require.config({
         can             : './libs/CanJS/can.custom',
         text            : './libs/text/text',
         views           : './views',
+        models          : './models',
         templates       : '../templates'
     },
     shim: {
