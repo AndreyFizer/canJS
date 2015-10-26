@@ -11,7 +11,8 @@ define([
         findAll : 'GET /index',
         findOne : 'GET /index/{id}',
         update  : 'PUT /index/{id}',
-        destroy : 'DELETE /index/{id}'
+        destroy : 'DELETE /index/{id}',
+        create  : 'POST /users/'
     },{});
 
     return indexModel;

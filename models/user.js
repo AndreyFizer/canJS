@@ -8,9 +8,9 @@ module.exports = (function () {
 
     var userSchema = mongoose.Schema({
         email         : {type: String, require: true, unique: true},
-        pass          : {type: String},
-        firstName     : {type: String},
-        lastName      : {type: String},
+        pass          : {type: String, default: null},
+        firstName     : {type: String, default: null},
+        lastName      : {type: String, default: null},
         role          : {type: Number, required: true, default: 1},
         createdAt     : {type: Date, default: Date.now},
         updatedAt     : {type: Date, default: Date.now}

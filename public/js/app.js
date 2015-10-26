@@ -3,7 +3,7 @@
  */
 
 require([
-    'views/indexView'
+    'views/userView'
 ], function(indexView) {
 
     var mainControl = new indexView('#wrapper', {});
