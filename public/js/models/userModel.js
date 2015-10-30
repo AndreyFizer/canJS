@@ -5,9 +5,9 @@
 define([
 
 ],function(){
-    var indexModel;
+    var userModel;
 
-    indexModel = can.Model.extend({
+    userModel = can.Model.extend({
         findAll : 'GET /index',
         findOne : 'GET /index/{id}',
         update  : 'PUT /index/{id}',
@@ -15,5 +15,5 @@ define([
         create  : 'POST /users/'
     },{});
 
-    return indexModel;
+    return userModel;
 });

@@ -3,8 +3,12 @@
  */
 
 require([
+    'router',
     'views/userView'
-], function(indexView) {
+], function(Router, indexView) {
+
+    App.Router = Router;
+    can.route.ready();
 
     var mainControl = new indexView('#wrapper', {});
 });

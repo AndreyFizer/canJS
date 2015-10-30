@@ -8,6 +8,7 @@ require.config({
     paths: {
         jquery          : './libs/jquery/dist/jquery',
         can             : './libs/CanJS/can.custom',
+        lodash          : './libs/lodash/lodash',
         text            : './libs/text/text',
         views           : './views',
         models          : './models',
@@ -15,7 +16,7 @@ require.config({
     },
     shim: {
         'can'           : ['jquery'],
-        'app'           : ['can']
+        'app'           : ['can', 'lodash']
     }
 });
 

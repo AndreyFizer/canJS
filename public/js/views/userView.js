@@ -3,23 +3,18 @@
  */
 
 define([
-    'models/userModel'
-], function (UserModel) {
+    'models/userModel',
+    'text!templates/userTemplate.html'
+], function (UserModel, Template) {
     var View;
-    var tempFile = 'templates/userTemplate.mustache';
-
     View = can.Control.extend({
 
         init: function (element, options) {
 
-            //can.Model.bind('created', this.onCreateFunction);
             this.userModel = new UserModel();
             this.userModel.bind('created', this.onCreateFunction);
 
-            //$(elSelector).html(can.view(tempFile, {
-            this.element.html(can.view(tempFile, {
-                message: 'CanJS'
-            }));
+            this.element.html(_.template(Template)({message : 'CanJS'}));
         },
 
         "#userButton click" : function(){this.onSaveUser()},
@@ -27,11 +22,15 @@ define([
         onSaveUser : function (){
             var nameValue = this.element.find('#userName').val();
             var mailValue = this.element.find('#userMail').val();
-            this.userModel.attr('firstName', nameValue);
-            this.userModel.attr('email', mailValue);
-            this.userModel.save(function(result){
-                console.dir(result);
-            });
+            if (nameValue !== '' || mailValue !== '') {
+                this.userModel.attr('firstName', nameValue);
+                this.userModel.attr('email', mailValue);
+                this.userModel.save(function (result) {
+                    console.dir(result);
+                });
+            } else {
+                alert ('Not enough incoming parameters');
+            }
         },
 
         onCreateFunction : function (event, newEvent){
